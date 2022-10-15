@@ -30,6 +30,7 @@ int _printfInt(va_list args);
 
 /* _putchar.c */
 int _putchar(char c);
+int buffer(char);
 
 /* string utils */
 char *litoa(long int num, int radix);
