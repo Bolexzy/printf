@@ -1,2 +1,0 @@
-# printf
-Alx printf project
