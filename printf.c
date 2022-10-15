@@ -1,0 +1,30 @@
+#include "main.h"
+
+/**
+ * _printf - Produces output according to a format.
+ *
+ * @format: Input character string.
+ *
+ * Return: The numbeer of characters printed(excluding
+ * the null byte ending the strings).
+ */
+int _printf(const char *format, ...)
+{
+	int size;
+	va_list arg;
+
+	if (format == NULL)
+		return (-1);
+
+	size = _strlen(format);
+	if (size <= 0)
+		return (0);
+
+	va_start(arg, format);
+	size = handler(format, arg);
+
+	/* _putchar(-1); */
+	va_end(arg);
+
+	return (size);
+}
