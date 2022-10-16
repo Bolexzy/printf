@@ -29,14 +29,19 @@ int _printfChar(va_list args);
 int _printfStr(va_list args);
 int _printfInt(va_list args);
 int _printfBin(va_list args);
+int _printfUnsigned(va_list args);
+int _printfOct(va_list args);
+int _printfHex_Cap(va_list args);
+int _printfHex_Low(va_list args);
 
 /* _putchar.c */
 int _putchar(char c);
-/* int buffer(char c); */
+int buffer(char c);
 
 /* string utils */
 char *litoa(long int num, int radix);
 int print(char *str);
 int _strlen(const char *str);
+char *str_tolower(char *s);
 
 #endif
