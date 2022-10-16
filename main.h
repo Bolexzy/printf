@@ -28,6 +28,7 @@ int specifier_handler(const char *str, va_list arg, int *index);
 int _printfChar(va_list args);
 int _printfStr(va_list args);
 int _printfInt(va_list args);
+int _printfBin(va_list args);
 
 /* _putchar.c */
 int _putchar(char c);
