@@ -12,19 +12,23 @@ int _strcmp(char *, char *);
 int _printfPtr(va_list args)
 {
 	char *p_buf;
-	int p_len;
+	int p_len, a;
+	void *p;
 
-	p_buf = litoa(va_arg(args, unsigned long int), 16);
-	p_buf = str_tolower(p_buf);
+	p = va_arg(args, void *);
 
-	if (!_strcmp(p_buf, "0"))
+	if (p == NULL)
 		return (print("(nil)"));
+
+	a = (unsigned long int)p;
+	p_buf = litoa(a, 16);
+	p_buf = str_tolower(p_buf);
 
 	p_len = print("0x");
 
 	if (!_strcmp(p_buf, "-1"))
 		p_len += print("ffffffffffffffff");
-	else
+	else 
 		p_len += print(p_buf);
 
 	return (p_len);
