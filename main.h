@@ -34,6 +34,7 @@ int _printfHex_Cap(va_list args);
 int _printfHex_Low(va_list args);
 int _printfStringHex(va_list args);
 void hex_print(char c);
+int _printfPtr(va_list args);
 
 /* _putchar.c */
 int _putchar(char c);
@@ -43,5 +44,6 @@ char *litoa(long int num, int radix);
 int print(char *str);
 int _strlen(const char *str);
 char *str_tolower(char *s);
+int _strcmp(char *s1, char *s2);
 
 #endif

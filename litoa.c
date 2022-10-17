@@ -27,7 +27,7 @@ char *litoa(long int num, int radix)
 	do {
 		*--ptr = figurative[n % radix];
 		n /= radix;
-	} while (n);
+	} while (n != 0);
 
 	if (sign)
 		*--ptr = '-';
