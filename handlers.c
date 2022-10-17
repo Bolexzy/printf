@@ -47,9 +47,11 @@ int specifier_handler(const char *str, va_list args, int *index)
 {
 	int size, j;
 	format formats[] = {
-		{'s', _printfStr},
-		{'c', _printfChar},
-		{'i', _printInt}
+		{'s', _printfStr}, {'c', _printfChar},
+		{'i', _printfInt}, {'d', _printfInt},
+		{'b', _printfBin}, {'u', _printfUnsigned},
+		{'o', _printfOct}, {'x', _printfHex_Low},
+		{'X', _printfHex_Cap}, {'S', _printfStringHex}
 	};
 
 	*index = *index +  1;

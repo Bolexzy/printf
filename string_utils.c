@@ -31,3 +31,26 @@ int print(char *str)
 
 	return (i);
 }
+
+/**
+ * str_tolower - Checks if string is uppercase and
+ * changes the string to lowercase.
+ *
+ * @s: The string.
+ * Return: Lowercase string.
+ */
+char *str_tolower(char *s)
+{
+	int i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] >= 65 && s[i] <= 90)
+		{
+			s[i] = s[i] + 32;
+		} i++;
+	}
+
+	return (s);
+}
