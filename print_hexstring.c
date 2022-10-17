@@ -1,6 +1,30 @@
 #include "main.h"
 
 /**
+ * hex_print - prints a char's ascii value in uppercase hex
+ *
+ * @c: char to print
+ * Return: number of chars printed (always 2)
+ */
+int hex_print(char c)
+{
+	int len;
+	char diff = 'A' - ':';
+	char d[2];
+
+	d[0] = c / 16;
+	d[1] = c % 16;
+	for (len = 0; len < 2; len++)
+	{
+		if (d[len] >= 10)
+			_putchar('0' + diff + d[len]);
+		else
+			_putchar('0' + d[len]);
+	}
+	return (len);
+}
+
+/**
  * _printfStringHex - Printd string and some characters in hex.
  *
  * @args: Argument list(parsed string)
@@ -10,13 +34,15 @@ int _printfStringHex(va_list args)
 {
 	char *s;
 	int s_len;
-	int i;
-	char *buff;
+	unsigned int i;
 
 	s = va_arg(args, char *);
 
 	i = 0;
 	s_len = 0;
+	if (s == NULL)
+		s = "(NULL)";
+
 	while (s[i] != '\0')
 	{
 		if (s[i] < 32 || s[i] >= 127)
@@ -24,13 +50,11 @@ int _printfStringHex(va_list args)
 			_putchar('\\');
 			_putchar('x');
 			s_len += 2;
-			buff = litoa((unsigned int)s[i], 16);
-			s_len += print((buff == NULL) ? "(NULL)" : buff);
+			s_len += hex_print(s[i]);
 		}
 		else
 		{
 			_putchar(s[i]);
-			s_len++;
 		} i++;
 	}
 	s_len += i;
