@@ -33,6 +33,7 @@ int _printfOct(va_list args);
 int _printfHex_Cap(va_list args);
 int _printfHex_Low(va_list args);
 int _printfStringHex(va_list args);
+int hex_print(char c);
 
 /* _putchar.c */
 int _putchar(char c);
