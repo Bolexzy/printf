@@ -31,7 +31,7 @@ int _printfStringHex(va_list args)
 		{
 			_putchar(s[i]);
 			s_len++;
-		}i++;
+		} i++;
 	}
 	s_len += i;
 
