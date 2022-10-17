@@ -6,7 +6,7 @@
  * @c: char to print
  * Return: number of chars printed (always 2)
  */
-int hex_print(char c)
+void hex_print(char c)
 {
 	int len;
 	char diff = 'A' - ':';
@@ -21,7 +21,6 @@ int hex_print(char c)
 		else
 			_putchar('0' + d[len]);
 	}
-	return (len);
 }
 
 /**
@@ -50,7 +49,8 @@ int _printfStringHex(va_list args)
 			_putchar('\\');
 			_putchar('x');
 			s_len += 2;
-			s_len += hex_print(s[i]);
+			hex_print(s[i]);
+			s_len += 2;
 		}
 		else
 		{
