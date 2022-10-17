@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _printfHexLow - Print a number in lowercase hexadecimal fromat.
+ * _printfHex_Low - Print a number in lowercase hexadecimal fromat.
  *
  * @args: Arguments list(parsed int)
  * Return: Length of printed number.
