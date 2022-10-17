@@ -3,7 +3,6 @@
 
 #include <unistd.h>
 #include <stdarg.h>
-#include <stdlib.h>
 
 /**
  * struct format_op - Typedef strcut
@@ -37,7 +36,6 @@ int _printfStringHex(va_list args);
 
 /* _putchar.c */
 int _putchar(char c);
-/* int buffer(char c); */
 
 /* string utils */
 char *litoa(long int num, int radix);
