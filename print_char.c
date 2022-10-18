@@ -1,17 +1,23 @@
 #include "main.h"
 
 /**
- * _printfChar - print char
+ * _printfChar - prints character
  *
- * @args: Arguments list
- * Return: 1(size of char).
+ * @arg: Arguments list(parsed int)
+ * @params: the parameters struct.
+ *
+ * Return: (size of char printed).
  */
-int _printfChar(va_list args)
+int _printfChar(va_list arg, format_t *params)
 {
-	int c;
+	char sp = ' ';
+	unsigned int pad = 1, len = 0, ch = va_arg(arg, int);
 
-	c = va_arg(args, int);
-
-	_putchar(c);
-	return (1);
+	if (params->minus_flag)
+		len += _putchar(ch);
+	while (pad++ < params->width)
+		len += _putchar(sp);
+	if (!params->minus_flag)
+		len += _putchar(ch);
+	return (len);
 }
