@@ -1,7 +1,8 @@
 #include "main.h"
 /**
- * print_int - prints integer
- * @ap: argument pointer
+ * _printfInt - prints integer
+ *
+ * @arg: argument pointer
  * @params: the parameters struct
  *
  * Return: number chars printed
