@@ -91,6 +91,7 @@ int _printf_hex(va_list arg, format_t *params);
 int _printf_HEX(va_list arg, format_t *params);
 int _printf_octal(va_list arg, format_t *params);
 int _printf_unsigned(va_list arg, format_t *params);
+int _printf_S(va_list arg, format_t *params);
 
 /*
  * int _printfUnsigned(va_list args);
