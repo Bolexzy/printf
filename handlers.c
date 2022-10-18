@@ -71,7 +71,6 @@ int (*handle_specifier(char *str))(va_list arg, format_t *params)
 		{'R', printf_rot13}
 		/**
 		* {'X', _printfHex_Cap}, {'S', _printfStringHex},
-		* {'p', _printfPtr}
 		*/
 	};
 
