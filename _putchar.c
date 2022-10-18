@@ -4,7 +4,7 @@
  * _puts - prints a string with newline
  *
  * @str: the string to print
- * Return: i (length)
+* Return: i (length)
  */
 int _puts(char *str)
 {
