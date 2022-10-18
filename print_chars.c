@@ -97,3 +97,61 @@ int _printf_S(va_list arg, format_t *params)
 	}
 	return (count);
 }
+
+/**
+ * printf_rev - prints string in reverse
+ * @arg: string
+ * @params: the parameters struct
+ *
+ * Return: number bytes printed
+ */
+
+int printf_rev(va_list arg, format_t *params)
+{
+	int len, count = 0;
+	char *str = va_arg(arg, char *);
+	(void)params;
+
+	if (str)
+	{
+		for (len = 0; *str; str++)
+			len++;
+		str--;
+		for (; len > 0; len--, str--)
+			count += _putchar(*str);
+	}
+	return (count);
+}
+
+/**
+ * printf_rot13 - prints string in rot13
+ * @arg: string
+ * @params: the parameters struct
+ *
+ * Return: number bytes printed
+ */
+int printf_rot13(va_list arg, format_t *params)
+{
+	int i, index;
+	int count = 0;
+	char arr[] =
+		"NOPQRSTUVWXYZABCDEFGHIJKLM      nopqrstuvwxyzabcdefghijklm";
+	char *a = va_arg(arg, char *);
+	(void)params;
+
+	i = 0;
+	index = 0;
+	while (a[i])
+	{
+		if ((a[i] >= 'A' && a[i] <= 'Z')
+		    || (a[i] >= 'a' && a[i] <= 'z'))
+		{
+			index = a[i] - 65;
+			count += _putchar(arr[index]);
+		}
+		else
+			count += _putchar(a[i]);
+		i++;
+	}
+	return (count);
+}
