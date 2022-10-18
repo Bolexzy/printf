@@ -97,7 +97,7 @@ int printf_rot13(va_list arg, format_t *params);
 int printf_rev(va_list arg, format_t *params);
 
 /*
- * int _printfUnsigned(va_list args);
+ * int _prin;
  */
 
 /* int operations (print_ints.c) */
