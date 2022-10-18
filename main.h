@@ -83,15 +83,17 @@ int handle_flag(char *s, format_t *params);
 int _printfChar(va_list args, format_t *params);
 /* int _printfStr(va_list args); */
 int _printfInt(va_list arg, format_t *params);
-/* int _printfBin(va_list args, format_t *params);
-int _printfUnsigned(va_list args);
-int _printfOct(va_list args);
-int _printfHex_Cap(va_list args);
-int _printfHex_Low(va_list args);
-int _printfStringHex(va_list args);
-int _printfPtr(va_list args);*/
+/**
+ * int _printfBin(va_list args, format_t *params);
+ * int _printfUnsigned(va_list args);
+ * int _printfOct(va_list args);
+ * int _printfHex_Cap(va_list args);
+ * int _printfHex_Low(va_list args);
+ * int _printfStringHex(va_list args);
+ * int _printfPtr(va_list args);
+ */
 
-/* int operations (print_ints.c)*/
+/* int operations (print_ints.c) */
 int print_number_left_shift(char *str, format_t *params);
 int print_number_right_shift(char *str, format_t *params);
 int print_number(char *str, format_t *params);
