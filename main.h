@@ -2,8 +2,10 @@
 #define _MAIN_H_
 
 #include <unistd.h>
+#include <stdio.h>
 #include <stdarg.h>
 #include <limits.h>
+#include <stdlib.h>
 
 #define OUTPUT_BUF_SIZE 1024
 #define BUF_FLUSH -1
@@ -83,9 +85,13 @@ int handle_flag(char *s, format_t *params);
 int _printfChar(va_list args, format_t *params);
 int _printfStr(va_list args, format_t *params);
 int _printfInt(va_list arg, format_t *params);
+int print_percent(va_list arg, format_t *params);
+int _printfBin(va_list args, format_t *params);
+int _printf_hex(va_list arg, format_t *params);
+int _printf_HEX(va_list arg, format_t *params);
+int _printf_octal(va_list arg, format_t *params);
 
 /*
- * int _printfBin(va_list args, format_t *params);
  * int _printfUnsigned(va_list args);
  * int _printfOct(va_list args);
  * int _printfHex_Cap(va_list args);
@@ -106,7 +112,6 @@ int _puts(char *str);
 /* string utils */
 int print_to(char *start, char *stop, char *except);
 int _strlen(char *str);
-int print_percent(va_list arg, format_t *params);
 /* int _strcmp(char *s1, char *s2);*/
 
 /* int_utils.c */
