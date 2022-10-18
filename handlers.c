@@ -69,8 +69,7 @@ int (*handle_specifier(char *str))(va_list arg, format_t *params)
 		{'u', _printf_unsigned}, {'S', _printf_S},
 		{'p', _printf_address}, {'r',  printf_rev},
 		{'R', printf_rot13}
-		/**
-		*/
+
 	};
 
 	i = 0;
