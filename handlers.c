@@ -1,83 +1,104 @@
 #include "main.h"
 
-int specifier_handler(const char *str, va_list args, int *index);
-
 /**
  * handler - format checker
  *
- * @str: String format.
+ * @format: String format.
  * @args: List of arguments.
  * Return: Total number of characters in argument and
  * number of characters in the string format.
  */
-int handler(const char *str, va_list args)
+int handler(const char *format, va_list args)
 {
-	int size, i, traverse;
+	int size;
+	format_t params = PARAMS_INIT;
+	char *p, *start;
 
 	size = 0;
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		if (str[i] == '%')
-		{
-			traverse = specifier_handler(str, args, &i);
-			if (traverse == -1)
-				return (-1);
+	if (format[0] == '%' && !format[1])
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
 
-			size += traverse;
+	for (p = (char *)format; *p; p++)
+	{
+		init_params(&params, args);
+		if (*p != '%')/* check for specifier */
+		{
+			size += _putchar(*p);
 			continue;
 		}
 
-		_putchar(str[i]);
-		size += 1;
+		start = p;
+		p++;
+		while (handle_flag(p, &params))/* while char at p is a flag character */
+		{
+			p++;/* traverse */
+		}
+		p = handle_width(p, &params, args);
+		p = handle_precision(p, &params, args);
+		if (handle_modifier(p, &params))
+			p++;
+		if (!handle_specifier(p))
+			size += print_to(start, p,
+					params.l_modifier || params.h_modifier ? p - 1 : 0);
+		else
+			size += get_print_format(p, args, &params);
 	}
-
+	_putchar(BUF_FLUSH);
 	return (size);
 }
 
 /**
- * specifier_handler - Checker for percent format.
+ * handle_specifier - Checker for format function.
  *
  * @str: Format string.
- * @args: List of arguments.
- * @index: Traversed index
- *
  * Return: Size of the numbers of characters printed.
  */
-int specifier_handler(const char *str, va_list args, int *index)
+int (*handle_specifier(char *str))(va_list arg, format_t *params)
 {
-	int size, j;
-	format formats[] = {
-		{'s', _printfStr}, {'c', _printfChar},
+	int i;
+
+	specifier_t formats[] = {
+		{'c', _printfChar},
+
 		{'i', _printfInt}, {'d', _printfInt},
-		{'b', _printfBin}, {'u', _printfUnsigned},
-		{'o', _printfOct}, {'x', _printfHex_Low},
-		{'X', _printfHex_Cap}, {'S', _printfStringHex},
-		{'p', _printfPtr}
+		{'%', print_percent}
+		/**
+		* {'b', _printfBin}, {'u', _printfUnsigned},
+		* {'o', _printfOct}, {'x', _printfHex_Low},
+		* {'X', _printfHex_Cap}, {'S', _printfStringHex},
+		* {'p', _printfPtr}
+		*/
 	};
 
-	*index = *index +  1;
+	i = 0;
 
-	if (str[*index] == '\0')
-		return (-1);
-
-	if (str[*index] == '%')
+	while (formats[i].flag)
 	{
-		_putchar('%');
-		return (1);
-	}
-
-	j = 0;
-	while (formats[j].flag)
-	{
-		if (str[*index] == formats[j].flag)
+		if (*str == formats[i].flag)
 		{
-			size = formats[j].fmt(args);
-			return (size);
+			return (formats[i].fmt);
 		}
-		j++;
+		i++;
 	}
+	return (NULL);
+}
 
-	_putchar('%'), _putchar(str[*index]);
+/**
+ * get_print_format - finds the format function
+ *
+ * @s: string of the format
+ * @arg: List of argument(parsed arg)
+ * @params: the parameters struct
+ * Return: the number of bytes printed
+ */
 
-	return (2);
+int get_print_format(char *s, va_list arg, format_t *params)
+{
+	int (*fmt)(va_list, format_t *) = handle_specifier(s);
+
+	if (fmt)
+		return (fmt(arg, params));
+	return (0);
 }
