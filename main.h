@@ -102,7 +102,7 @@ int printf_rev(va_list arg, format_t *params);
  * int _printfHex_Cap(va_list args);
  * int _printfHex_Low(va_list args);
  * int _printfStringHex(va_list args);
- * int _printfPtr(va_list args);
+ * int _printfPtr;
  */
 
 /* int operations (print_ints.c) */
