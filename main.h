@@ -93,6 +93,8 @@ int _printf_octal(va_list arg, format_t *params);
 int _printf_unsigned(va_list arg, format_t *params);
 int _printf_S(va_list arg, format_t *params);
 int _printf_address(va_list arg, format_t *params);
+int printf_rot13(va_list arg, format_t *params);
+int printf_rev(va_list arg, format_t *params);
 
 /*
  * int _printfUnsigned(va_list args);
