@@ -2,8 +2,10 @@
 #define _MAIN_H_
 
 #include <unistd.h>
+#include <stdio.h>
 #include <stdarg.h>
 #include <limits.h>
+#include <stdlib.h>
 
 #define OUTPUT_BUF_SIZE 1024
 #define BUF_FLUSH -1
@@ -70,7 +72,7 @@ int _printf(const char *format, ...);
 /* handlers.c */
 int handler(const char *str, va_list args);
 int (*handle_specifier(char *str))(va_list arg, format_t *params);
-char *handle_precision(char *s,format_t *params, va_list arg);
+char *handle_precision(char *s, format_t *params, va_list arg);
 int get_print_format(char *s, va_list arg, format_t *params);
 
 /* converion specifier (conversion_check.c) */
@@ -81,11 +83,12 @@ int handle_flag(char *s, format_t *params);
 
 /* printers */
 int _printfChar(va_list args, format_t *params);
-/* int _printfStr(va_list args); */
+int _printfStr(va_list args, format_t *params);
 int _printfInt(va_list arg, format_t *params);
-/**
- * int _printfBin(va_list args, format_t *params);
- * int _printfUnsigned(va_list args);
+int print_percent(va_list arg, format_t *params);
+int _printfBin(va_list args, format_t *params);
+
+/* int _printfUnsigned(va_list args);
  * int _printfOct(va_list args);
  * int _printfHex_Cap(va_list args);
  * int _printfHex_Low(va_list args);
@@ -105,7 +108,6 @@ int _puts(char *str);
 /* string utils */
 int print_to(char *start, char *stop, char *except);
 int _strlen(char *str);
-int print_percent(va_list arg, format_t *params);
 /* int _strcmp(char *s1, char *s2);*/
 
 /* int_utils.c */
