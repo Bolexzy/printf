@@ -70,7 +70,7 @@ int _printf(const char *format, ...);
 /* handlers.c */
 int handler(const char *str, va_list args);
 int (*handle_specifier(char *str))(va_list arg, format_t *params);
-char *handle_precision(char *s,format_t *params, va_list arg);
+char *handle_precision(char *s, format_t *params, va_list arg);
 int get_print_format(char *s, va_list arg, format_t *params);
 
 /* converion specifier (conversion_check.c) */
@@ -81,9 +81,10 @@ int handle_flag(char *s, format_t *params);
 
 /* printers */
 int _printfChar(va_list args, format_t *params);
-/* int _printfStr(va_list args); */
+int _printfStr(va_list args, format_t *params);
 int _printfInt(va_list arg, format_t *params);
-/**
+
+/*
  * int _printfBin(va_list args, format_t *params);
  * int _printfUnsigned(va_list args);
  * int _printfOct(va_list args);

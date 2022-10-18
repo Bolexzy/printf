@@ -16,7 +16,7 @@ char *handle_precision(char *s, format_t *params, va_list arg)
 	if (*s != '.')
 		return (s);
 	s++;
-	if (s == '')
+	if (*s == '*')
 	{
 		d = va_arg(arg, int);
 		s++;
