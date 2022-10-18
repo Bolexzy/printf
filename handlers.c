@@ -3,7 +3,7 @@
 /**
  * handler - format checker
  *
- * @str: String format.
+ * @format: String format.
  * @args: List of arguments.
  * Return: Total number of characters in argument and
  * number of characters in the string format.
@@ -15,7 +15,9 @@ int handler(const char *format, va_list args)
 	char *p, *start;
 
 	size = 0;
-	if ((format[0] == '%' && !format[1]) || (format[0] == '%' && format[1] == ' ' && !format[2]))
+	if (format[0] == '%' && !format[1])
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
 		return (-1);
 
 	for (p = (char *)format; *p; p++)
@@ -29,7 +31,7 @@ int handler(const char *format, va_list args)
 
 		start = p;
 		p++;
-		while(handle_flag(p, &params))/* while char at p is a flag character */
+		while (handle_flag(p, &params))/* while char at p is a flag character */
 		{
 			p++;/* traverse */
 		}
@@ -62,10 +64,12 @@ int (*handle_specifier(char *str))(va_list arg, format_t *params)
 
 		{'i', _printfInt}, {'d', _printfInt},
 		{'%', print_percent}
-		/*{'b', _printfBin}, {'u', _printfUnsigned},
-		{'o', _printfOct}, {'x', _printfHex_Low},
-		{'X', _printfHex_Cap}, {'S', _printfStringHex},
-		{'p', _printfPtr} */
+		/**
+		* {'b', _printfBin}, {'u', _printfUnsigned},
+		* {'o', _printfOct}, {'x', _printfHex_Low},
+		* {'X', _printfHex_Cap}, {'S', _printfStringHex},
+		* {'p', _printfPtr}
+		*/
 	};
 
 	i = 0;
