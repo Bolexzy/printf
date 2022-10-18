@@ -99,7 +99,6 @@ int printf_rev(va_list arg, format_t *params);
 /*
  * int _printfUnsigned(va_list args);
  * int _printfOct(va_list args);
- * int _printfHex_Ca;
  */
 
 /* int operations (print_ints.c) */
