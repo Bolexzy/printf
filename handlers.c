@@ -66,7 +66,8 @@ int (*handle_specifier(char *str))(va_list arg, format_t *params)
 		{'%', print_percent}, {'s', _printfStr},
 		{'b', _printfBin}, {'x', _printf_hex},
 		{'X', _printf_HEX}, {'o', _printf_octal},
-		{'u', _printf_unsigned}, {'S', _printf_S}
+		{'u', _printf_unsigned}, {'S', _printf_S},
+		{'p', _printf_address}
 		/**
 		* {'b', _printfBin}, {'u', _printfUnsigned},
 		* {'o', _printfOct}, {'x', _printfHex_Low},
