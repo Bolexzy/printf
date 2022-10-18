@@ -86,10 +86,9 @@ int _printfChar(va_list args, format_t *params);
 int _printfStr(va_list args, format_t *params);
 int _printfInt(va_list arg, format_t *params);
 int print_percent(va_list arg, format_t *params);
+int _printfBin(va_list args, format_t *params);
 
-/*
- * int _printfBin(va_list args, format_t *params);
- * int _printfUnsigned(va_list args);
+/* int _printfUnsigned(va_list args);
  * int _printfOct(va_list args);
  * int _printfHex_Cap(va_list args);
  * int _printfHex_Low(va_list args);
