@@ -11,13 +11,13 @@ int _isdigit(int c)
 	return (c >= '0' && c <= '9');
 }
 
-#include "main.h"
-
 /**
  * litoa - Converts integer to ascii
  *
  * @num: Input integer.
  * @radix: base.
+ * @flags: Argument flags
+ * @params: Parameter struct
  * Return: Pointer to converted string.
  */
 char *litoa(long int num, int radix, int flags, format_t *params)
@@ -37,7 +37,8 @@ char *litoa(long int num, int radix, int flags, format_t *params)
 	else
 		n = (unsigned int)num;
 
-	conversion = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	conversion = flags & CONVERT_LOWERCASE
+		? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr = &buffer[49];
 	*ptr = '\0';
 
