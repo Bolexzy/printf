@@ -62,3 +62,38 @@ int _printfStr(va_list arg, format_t *params)
 	}
 	return (len);
 }
+
+/**
+ * _printf_S - custom format specifier
+ *
+ * @arg: argument pointer
+ * @params: the parameters struct
+ *
+ * Return: number chars printed
+ */
+int _printf_S(va_list arg, format_t *params)
+{
+	char *str = va_arg(arg, char *);
+	char *hex;
+	int count = 0;
+
+	if ((int)(!str))
+		return (_puts(NULL_STRING));
+	for (; *str; str++)
+	{
+		if ((*str > 0 && *str < 32) || *str >= 127)
+		{
+			count += _putchar('\\');
+			count += _putchar('x');
+			hex = litoa(*str, 16, 0, params);
+			if (!hex[1])
+				count += _putchar('0');
+			count += _puts(hex);
+		}
+		else
+		{
+			count += _putchar(*str);
+		}
+	}
+	return (count);
+}
