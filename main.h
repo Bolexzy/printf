@@ -96,8 +96,6 @@ int _printf_address(va_list arg, format_t *params);
 int printf_rot13(va_list arg, format_t *params);
 int printf_rev(va_list arg, format_t *params);
 
-/*
- */
 
 /* int operations (print_ints.c) */
 int print_number_left_shift(char *str, format_t *params);
