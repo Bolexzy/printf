@@ -49,10 +49,10 @@ R | `printf_rot13` | Prints | Prints strings of characters to corresponding char
 
 ## Flag Characters
 Flags | Description | Specifiers
---- | --- | --
-+ | Prints a plus sign (+) when the argument is a positive number. In other case, prints a minus sign (-). | d, i
-(space) | Prints a blank space if the argument is a positive number | d, i
-# | Prints 0, 0x and 0X for o, x and X specifiers, respectively. It doesn't print anything if the argument is zero | o, x, X
+--- | --- | ---
+\+ | Prints a plus sign (+) when the argument is a positive number. In other case, prints a minus sign (-). | d, i
+\(space) | Prints a blank space if the argument is a positive number | d, i
+\# | Prints 0, 0x and 0X for o, x and X specifiers, respectively. It doesn't print anything if the argument is zero | o, x, X
 
 ## Length Modifiers
 Length | Description | Specifiers
