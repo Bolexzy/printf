@@ -34,7 +34,7 @@ int _printf_address(va_list arg, format_t *params)
 }
 
 /**
- * litoa - Converts integer to ascii
+ * litoa - Converts integer to base numbers.
  *
  * @num: Input integer.
  * @radix: base.
@@ -57,7 +57,7 @@ char *litoa(long int num, int radix, int flags, format_t *params)
 		minus = '-';
 	}
 	else
-		n = (unsigned int)num;
+		n = (unsigned long)num;
 
 	conversion = flags & CONVERT_LOWERCASE
 		? "0123456789abcdef" : "0123456789ABCDEF";
